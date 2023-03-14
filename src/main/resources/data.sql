@@ -1,0 +1,38 @@
+--Ещё одно свойство — рейтинг
+
+INSERT INTO
+    PUBLIC.MPA (NAME) VALUES ('G');
+
+INSERT INTO
+    PUBLIC.MPA (NAME) VALUES ('PG');
+
+INSERT INTO
+    PUBLIC.MPA (NAME) VALUES ('PG-13');
+
+INSERT INTO
+    PUBLIC.MPA (NAME) VALUES ('R');
+
+INSERT INTO
+    PUBLIC.MPA (NAME) VALUES ('NC-17');
+
+
+--Добавьте новое свойство — «жанр».
+
+
+INSERT INTO
+    PUBLIC.GENRE (NAME) VALUES ('Комедия');
+
+INSERT INTO
+    PUBLIC.GENRE (NAME) VALUES ('Драма');
+
+INSERT INTO
+    PUBLIC.GENRE (NAME) VALUES ('Мультфильм');
+
+INSERT INTO
+    PUBLIC.GENRE (NAME) VALUES ('Триллер');
+
+INSERT INTO
+    PUBLIC.GENRE (NAME) VALUES ('Документальный');
+
+INSERT INTO
+    PUBLIC.GENRE (NAME) VALUES ('Боевик');

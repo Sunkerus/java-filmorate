@@ -10,6 +10,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -19,7 +20,7 @@ public class Film {
 
     private Set<Integer> userLikes;
     private Integer id;
-    private Integer rate;
+    private int rate;
 
     @NotBlank(message = "Поле name не должно быть пустым")
     private String name;
@@ -36,15 +37,11 @@ public class Film {
     @Positive(message = "Переменная duration должна быть положительной")
     private int duration;
 
+    private List<Genre> genres;
 
-    public boolean addUserLikes(int userId) {
-        if (userLikes == null) {
-            userLikes = new HashSet<>();
-        }
-        return userLikes.add(userId);
-    }
+    private Mpa mpa;
 
-    public boolean deleteUserLike(int userId) {
-        return userLikes.remove(userId);
-    }
+
+
+
 }

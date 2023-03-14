@@ -7,10 +7,10 @@ import javax.validation.constraints.*;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -47,7 +47,7 @@ public class User {
     public boolean deleteFriend(int id) {
         return friends.remove(id);
     }
-
+    private List<Integer> subscribers;
 
 
 }

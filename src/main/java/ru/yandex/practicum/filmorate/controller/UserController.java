@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/friends/common/{otherId}")
-    public List<User> getCommonFriends(@PathVariable(name = "id") @NotNull @Positive Integer firstUserId,
+    public List<User> getMutualFriends(@PathVariable(name = "id") @NotNull @Positive Integer firstUserId,
                                        @PathVariable(name = "otherId") @NotNull @Positive Integer secondUserId) {
         return userService.getMutualFriendsById(firstUserId, secondUserId);
     }
@@ -45,11 +45,7 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @PutMapping(value = "/{id}/friends/{friendId}")
-    public User addFriend(@NotNull @Positive @PathVariable Integer id,
-                          @NotNull @Positive @PathVariable Integer friendId) {
-        return userService.addFriendById(id, friendId);
-    }
+
 
     @PutMapping
     public User updateUser(@RequestBody @NotNull @Valid User user) {
@@ -57,13 +53,14 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/{id}/friends/{friendId}")
-    public User deleteFriend(@NotNull @Positive @PathVariable Integer id,
+    public void deleteSubscribe(@NotNull @Positive @PathVariable Integer id,
                              @NotNull @Positive @PathVariable Integer friendId) {
-        return userService.deleteFriendById(id, friendId);
+        userService.removeSubscribe(id, friendId);
     }
 
-    @DeleteMapping("/{id}")
-    public User deleteUserById(@NotNull @Positive @PathVariable Integer id) {
-        return userService.deleteUserById(id);
+    @PutMapping(value = "/{id}/friends/{friendId}")
+    public void addSubscribe(@NotNull @Positive @PathVariable Integer id,
+                          @NotNull @Positive @PathVariable Integer friendId) {
+        userService.makeSubscribe(id, friendId);
     }
 }
